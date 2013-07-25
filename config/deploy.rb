@@ -4,7 +4,7 @@ require 'puma/capistrano'
 
 set :application, "group-buddies-site"
 set :repository,  "git@github.com:groupbuddies/group-buddies-site.git"
-set :branch, "capistrano"
+set :branch, "master"
 set :scm, :git
 set :deploy_via, :remote_cache
 set :deploy_to, "/home/deploy/#{application}"
