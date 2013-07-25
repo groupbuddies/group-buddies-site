@@ -1,6 +1,5 @@
 require 'puma/capistrano'
 
-
 set :application, "group-buddies-site"
 set :repository,  "git@github.com:groupbuddies/group-buddies-site.git"
 set :branch, "capistrano"
