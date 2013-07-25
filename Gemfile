@@ -1,9 +1,9 @@
 source :rubygems
 
-gem "pony"
-gem "sass"
-gem "shotgun"
-gem "sinatra"
-gem "mixpanel"
 gem "gibbon"
-# gem "heroku"
+gem "mixpanel"
+gem "pony"
+gem "puma"
+gem "sass"
+gem "sinatra"
+gem "shotgun"
