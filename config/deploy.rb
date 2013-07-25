@@ -1,3 +1,5 @@
+require "rvm/capistrano"
+require "bundler/capistrano"
 require 'puma/capistrano'
 
 set :application, "group-buddies-site"
