@@ -220,6 +220,9 @@ jQuery(document).ready(function($) {
           case "nav-contact-us":
             new_pos = header_nav.footer;
             break;
+          case "nav-blog":
+            window.open(http://blog.groupbuddies.com);
+            break;
           default:
             new_pos = header_nav.home;
         }
