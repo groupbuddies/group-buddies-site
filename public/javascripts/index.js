@@ -141,10 +141,10 @@ jQuery(document).ready(function($) {
   var header_nav = {
     home: $("#home").offset().top - 40,
     who_we_are: $("#who-we-are").offset().top - 40,
-    what_we_do: $("#what-we-do").offset().top - 40,
-    what_we_did: $("#our-work").offset().top - 40,
-    contact: $("#hire-us").offset().top - 40,
-    footer: $("footer").offset().top - 40,
+    what_we_do: $("#what-we-do").offset().top - 55,
+    what_we_did: $("#our-work").offset().top - 50,
+    contact: $("#hire-us").offset().top - 50,
+    footer: $("footer").offset().top - 50,
 
     add_class_to_one: function(classable_item,class_name){
       $("a."+class_name).each(function(){

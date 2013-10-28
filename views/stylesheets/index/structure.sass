@@ -19,6 +19,8 @@ header
   width: 100%
   z-index: 10
 
+.gb-thought
+  font-style: italic
 
 #logo
   background-image: url('/logo.png')
@@ -34,7 +36,8 @@ header
   float: right
   margin-right: 0.8em
   margin-top: 1em
-
+  a
+    text-decoration: underline
 
 nav
   float: right
@@ -95,13 +98,17 @@ nav
   background-position: 0% 50%
   background-repeat: no-repeat
   background-size: 600px
-  height: 720px
+  min-height: 720px
 
   h1
     padding-top: 80px
 
-  h1, p, ul
+  h1, p
     padding-bottom: 3.2%
+    padding-left: 56%
+
+  ul
+    padding-bottom: 70px
     padding-left: 56%
 
   li
@@ -129,11 +136,14 @@ nav
   background-image: url('/images/circle.png')
   background-position: 80% 60%
   background-repeat: no-repeat
-  height: 720px
+  min-height: 540px
 
   h1
     padding-bottom: 7.5%
     padding-top: 110px
+
+  ul
+    padding-bottom: 70px
 
   li
     margin-bottom: 2%
@@ -142,11 +152,14 @@ nav
 
 #our-work
   background-color: #323232
-  height: 720px
+  min-height: 540px
 
   h1
     padding-bottom: 7.5%
     padding-top: 100px
+
+  ul
+    padding-bottom: 70px
 
   .thumbnail
     display: inline-block
@@ -418,6 +431,9 @@ nav
 
   #slogan
     margin-right: 0 !important
+
+  .gb-thought
+    display: none !important
 
   #who-we-are
     background-position: -220px 50% !important
