@@ -113,3 +113,7 @@ post '/newsletter' do
   end
 
 end
+
+error 404 do
+  redirect to '/'
+end
