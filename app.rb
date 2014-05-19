@@ -1,14 +1,10 @@
 require 'pony'
 require 'sass'
 require 'sinatra'
-require 'mixpanel'
 require 'gibbon'
 
 require './helpers/helpers.rb'
 require './config/initializers/load_keys.rb'
-
-use Mixpanel::Middleware, KEYS["mixpanel"], :insert_js_last => true
-
 
 # require_relative does not exist in ruby 1.8.7
 # This is a fallback -- http://stackoverflow.com/a/4718414/951432
@@ -29,12 +25,6 @@ configure do
   set :list_id, settings.gb.lists({:filters => { :list_name => "gbnews" }})["data"].first["id"]
 end
 
-
-
-before do
-  @mixpanel = Mixpanel::Tracker.new(KEYS["mixpanel"], request.env)
-end
-
 get '/stylesheets/:filename.css' do
   content_type 'text/css', :charset => 'utf-8'
   filename = "#{params[:filename]}"
@@ -50,7 +40,6 @@ end
 
 
 get '/' do
-  @mixpanel.track("Home Page View")
   @stylesheets = ['/stylesheets/reset.css', '/stylesheets/index/structure.css', '/stylesheets/index/typography.css', '/stylesheets/font-awesome.css']
   @javascripts = ['/javascripts/jquery.js', '/javascripts/jquery-ui.min.js', '/javascripts/jquery.touchdown.min.js', '/javascripts/application.js', '/javascripts/index.js', '/javascripts/preloadCssImages.jQuery_v5.js']
 

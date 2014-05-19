@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem "gibbon"
-gem "mixpanel"
 gem "pony"
 gem "puma"
 gem "rvm-capistrano"
