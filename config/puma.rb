@@ -1,18 +1,12 @@
-#!/usr/bin/env puma
+workers Integer(ENV['PUMA_WORKERS'] || 2)
+threads Integer(ENV['MIN_THREADS'] || 1), Integer(ENV['MAX_THREADS'] || 16)
 
-_app = 'group-buddies-site'
-shared_path = '/home/deploy/group-buddies-site/shared'
+preload_app!
 
-environment 'production'
+environment ENV['RACK_ENV'] || 'development'
 
-daemonize true
-
-pidfile "#{shared_path}/pids/puma.pid"
-
-state_path "#{shared_path}/pids/puma.state"
-
-threads 4, 16
-
-bind "unix://#{shared_path}/sockets/puma.sock"
-
-activate_control_app "unix://#{shared_path}/sockets/pumactl.sock"
+if %w(production staging).include?(ENV['RACK_ENV'])
+  bind "unix:///var/www/#{ENV['APP_NAME']}/shared/sockets/puma.sock"
+else
+  port ENV['PORT'] || 3000
+end

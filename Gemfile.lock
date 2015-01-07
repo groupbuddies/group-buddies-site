@@ -1,25 +1,43 @@
+GIT
+  remote: git://github.com/groupbuddies/capistrano-foreman.git
+  revision: 724e157c664674637797a066a2ddd7176ce1eb21
+  branch: master
+  specs:
+    capistrano-foreman (1.1.0)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.0.0)
     astrolabe (1.3.0)
       parser (>= 2.2.0.pre.3, < 3.0)
-    capistrano (2.15.5)
-      highline
-      net-scp (>= 1.0.0)
-      net-sftp (>= 2.0.0)
-      net-ssh (>= 2.0.14)
-      net-ssh-gateway (>= 1.1.0)
+    capistrano (3.2.1)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (~> 1.3)
+    capistrano-bundler (1.1.3)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
+    colorize (0.7.5)
+    dotenv (1.0.2)
+    foreman (0.77.0)
+      dotenv (~> 1.0.2)
+      thor (~> 0.19.1)
     gibbon (0.3.5)
       httparty (> 0.6.0)
       httparty (> 0.6.0)
       json (> 1.4.0)
       json (> 1.4.0)
       rdoc
-    highline (1.6.21)
     httparty (0.13.3)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
+    i18n (0.7.0)
     json (1.8.1)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
@@ -27,11 +45,7 @@ GEM
     multi_xml (0.5.5)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-sftp (2.1.2)
-      net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
-    net-ssh-gateway (1.2.0)
-      net-ssh (>= 2.6.5)
     parser (2.2.0.1)
       ast (>= 1.1, < 3.0)
       slop (~> 3.4, >= 3.4.5)
@@ -44,6 +58,7 @@ GEM
     rack-protection (1.5.3)
       rack
     rainbow (2.0.0)
+    rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
     rubocop (0.28.0)
@@ -53,8 +68,6 @@ GEM
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.4)
     ruby-progressbar (1.7.1)
-    rvm-capistrano (1.5.5)
-      capistrano (~> 2.15.4)
     sass (3.4.9)
     shotgun (0.9)
       rack (>= 1.0)
@@ -63,17 +76,26 @@ GEM
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
     slop (3.6.0)
+    sshkit (1.6.1)
+      colorize (>= 0.7.0)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
+    thor (0.19.1)
     tilt (1.4.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  capistrano (~> 3.2.1)
+  capistrano-bundler
+  capistrano-foreman!
+  capistrano-rvm
+  foreman
   gibbon (= 0.3.5)
   pony
   puma
   rubocop
-  rvm-capistrano
   sass
   shotgun
   sinatra
