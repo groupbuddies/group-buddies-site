@@ -1,7 +1,7 @@
 #!/usr/bin/env puma
 
-app = "group-buddies-site"
-shared_path = "/home/deploy/group-buddies-site/shared"
+_app = 'group-buddies-site'
+shared_path = '/home/deploy/group-buddies-site/shared'
 
 environment 'production'
 
