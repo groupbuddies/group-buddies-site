@@ -4,10 +4,26 @@ require './helpers/helpers.rb'
 require './config/initializers/load_keys.rb'
 
 configure do
+  set :root, File.dirname(__FILE__)
+
   set :sass, style: :compressed
 
   set :gb, Gibbon.new(KEYS['mailchimp'])
   set :list_id, settings.gb.lists(filters: { list_name: 'gbnews' })['data'].first['id']
+
+  assets {
+    serve '/css', from: 'assets/stylesheets'
+    serve '/js',  from: 'assets/javascripts'
+
+    css :index,     %w(/css/reset.css /css/index/*.css /css/font-awesome.css)
+    css :portfolio, %w(/css/reset.css /css/portfolio/*.css)
+
+    js :index,     %w(/js/jquery.js /js/jquery-ui.min.js /js/jquery.touchdown.min.js /js/application.js /js/index.js js/preloadCssImages.jQuery_v5.js)
+    js :portfolio, %w(/js/jquery.js /js/jquery-ui.min.js /js/jquery.touchdown.min.js /js/application.js /js/portfolio.js js/preloadCssImages.jQuery_v5.js)
+
+    css_compression :simple
+  }
+
 end
 
 get '/stylesheets/:filename.css' do
@@ -23,9 +39,7 @@ get '/stylesheets/:folder/:filename.css' do
 end
 
 get '/' do
-  @stylesheets = ['/stylesheets/reset.css', '/stylesheets/index/structure.css', '/stylesheets/index/typography.css', '/stylesheets/font-awesome.css']
-  @javascripts = ['/javascripts/jquery.js', '/javascripts/jquery-ui.min.js', '/javascripts/jquery.touchdown.min.js', '/javascripts/application.js', '/javascripts/index.js', '/javascripts/preloadCssImages.jQuery_v5.js']
-
+  @assets = :index
   erb :index
 end
 
@@ -49,8 +63,7 @@ post '/contact' do
 end
 
 get '/portfolio/:name' do
-  @stylesheets = ['/stylesheets/reset.css', '/stylesheets/portfolio/structure.css', '/stylesheets/portfolio/typography.css']
-  @javascripts = ['/javascripts/jquery.js', '/javascripts/jquery-ui.min.js', '/javascripts/jquery.touchdown.min.js', '/javascripts/application.js', '/javascripts/portfolio.js', '/javascripts/preloadCssImages.jQuery_v5.js']
+  @assets = :portfolio
 
   @name = params[:name]
 

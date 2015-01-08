@@ -12,13 +12,8 @@
   <link rel="image_src" href="/logo.png" />
   <meta property="og:image" content="http://www.groupbuddies.com/logo.png" />
 
-  <% @stylesheets.each do |stylesheet| %>
-    <%= link_to_stylesheet(stylesheet) %>
-  <% end %>
-
-  <% @javascripts.each do |javascript| %>
-    <%= link_to_javascript(javascript) %>
-  <% end %>
+  <%= css @assets %>
+  <%= js @assets %>
 
   <script type="text/javascript">
     var _gaq = _gaq || [];
