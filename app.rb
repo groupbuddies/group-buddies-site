@@ -1,9 +1,3 @@
-require 'pony'
-require 'sass'
-require 'sinatra'
-require 'gibbon'
-require 'dotenv'
-
 Dotenv.load
 
 require './helpers/helpers.rb'
