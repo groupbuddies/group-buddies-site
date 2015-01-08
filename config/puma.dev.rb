@@ -5,8 +5,4 @@ preload_app!
 
 environment ENV['RACK_ENV'] || 'development'
 
-if %w(production staging).include?(ENV['RACK_ENV'])
-  bind "unix:///var/www/#{ENV['APP_NAME']}/shared/sockets/puma.sock"
-else
-  port ENV['PORT'] || 3000
-end
+port ENV['PORT'] || 3000

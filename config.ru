@@ -15,4 +15,4 @@ if settings.environment == :production
   STDERR.reopen(log)
 end
 
-run Sinatra::Application
+run GbSite
