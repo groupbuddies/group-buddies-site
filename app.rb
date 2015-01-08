@@ -23,18 +23,6 @@ class GbSite < Sinatra::Base
     css_compression :simple
   end
 
-  get '/stylesheets/:filename.css' do
-    content_type 'text/css', charset: 'utf-8'
-    filename = "#{params[:filename]}"
-    render :sass, filename.to_sym, views: './views/stylesheets'
-  end
-
-  get '/stylesheets/:folder/:filename.css' do
-    content_type 'text/css', charset: 'utf-8'
-    filename = "#{params[:filename]}"
-    render :sass, filename.to_sym, views: "./views/stylesheets/#{params[:folder]}"
-  end
-
   get '/' do
     @assets = :index
     erb :index
