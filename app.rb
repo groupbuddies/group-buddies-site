@@ -10,18 +10,18 @@ class GbSite < Sinatra::Base
   set :root, File.dirname(__FILE__)
   register Sinatra::AssetPack
 
-  assets {
+  assets do
     serve '/css', from: 'assets/stylesheets'
     serve '/js',  from: 'assets/javascripts'
 
     css :index,     %w(/css/reset.css /css/index/*.css /css/font-awesome.css)
     css :portfolio, %w(/css/reset.css /css/portfolio/*.css)
 
-    js :index,     %w(/js/jquery.js /js/jquery-ui.min.js /js/jquery.touchdown.min.js /js/application.js /js/index.js js/preloadCssImages.jQuery_v5.js)
-    js :portfolio, %w(/js/jquery.js /js/jquery-ui.min.js /js/jquery.touchdown.min.js /js/application.js /js/portfolio.js js/preloadCssImages.jQuery_v5.js)
+    js :index,     %w(/js/jquery.js /js/jquery-ui.min.js /js/jquery.touchdown.min.js /js/application.js /js/index.js /js/preloadCssImages.jQuery_v5.js)
+    js :portfolio, %w(/js/jquery.js /js/jquery-ui.min.js /js/jquery.touchdown.min.js /js/application.js /js/portfolio.js /js/preloadCssImages.jQuery_v5.js)
 
     css_compression :simple
-  }
+  end
 
   get '/stylesheets/:filename.css' do
     content_type 'text/css', charset: 'utf-8'

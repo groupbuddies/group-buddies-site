@@ -37,6 +37,17 @@ namespace :deploy do
     invoke 'foreman:start'
   end
 
+  task :assets do
+    on release_roles(:all) do
+      within release_path do
+        with rack_env: fetch(:rack_env) do
+          execute :rake, 'assetpack:build'
+        end
+      end
+    end
+  end
+
   after :finishing, 'deploy:cleanup'
+  after :finishing, 'deploy:assets'
   after :finishing, 'deploy:restart'
 end
