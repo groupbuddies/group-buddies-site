@@ -2,6 +2,9 @@ require 'pony'
 require 'sass'
 require 'sinatra'
 require 'gibbon'
+require 'dotenv'
+
+Dotenv.load
 
 require './helpers/helpers.rb'
 require './config/initializers/load_keys.rb'
@@ -55,8 +58,8 @@ post '/contact' do
               address:              'smtp.gmail.com',
               port:                 '587',
               enable_starttls_auto: true,
-              user_name:            'noreply@groupbuddies.com',
-              password:             'noreplygbsuperpass',
+              user_name:            ENV['NOREPLY_USERNAME'],
+              password:             ENV['NOREPLY_PASSWORD'],
               authentication:       :plain # :plain, :login, :cram_md5, no auth by default
             }
 

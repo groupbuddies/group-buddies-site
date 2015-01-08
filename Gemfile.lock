@@ -91,6 +91,7 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-foreman!
   capistrano-rvm
+  dotenv
   foreman
   gibbon (= 0.3.5)
   pony

@@ -7,6 +7,7 @@ gem 'sass'
 gem 'shotgun'
 gem 'sinatra'
 gem 'foreman'
+gem 'dotenv'
 
 group :test do
   gem 'rubocop', require: false
