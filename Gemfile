@@ -9,6 +9,7 @@ gem 'rake'
 gem 'sinatra-assetpack', require: 'sinatra/assetpack'
 gem 'foreman'
 gem 'dotenv'
+gem 'newrelic_rpm'
 
 group :test do
   gem 'rubocop', require: false
