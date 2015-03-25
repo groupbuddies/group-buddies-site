@@ -5,7 +5,7 @@ require './config/initializers/load_keys.rb'
 
 class GbSite < Sinatra::Base
   set :gb, Gibbon.new(KEYS['mailchimp'])
-  set :list_id, settings.gb.lists(filters: { list_name: 'gbnews' })['data'].first['id']
+  # set :list_id, settings.gb.lists(filters: { list_name: 'gbnews' })['data'].first['id']
 
   set :root, File.dirname(__FILE__)
   register Sinatra::AssetPack
@@ -61,7 +61,7 @@ class GbSite < Sinatra::Base
     if params[:email] =~ email_regex && !email_exists?('newsletter.txt', params[:email])
       add_to_newsletter('newsletter.txt', params[:email])
 
-      settings.gb.listSubscribe id: settings.list_id,
+      settings.gb.listSubscribe id: nil, # settings.list_id,
                                 email_address: params[:email],
                                 merge_vars: { fname: 'GB', lname: 'User' },
                                 double_optin: false,
