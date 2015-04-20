@@ -4,7 +4,7 @@ require './helpers/helpers.rb'
 
 class GbSite < Sinatra::Base
   set :gb, Gibbon.new(ENV['MAILCHIMP_KEY'])
-  set :list_id, settings.gb.lists(filters: { list_name: 'gbnews' })['data'].first['id']
+  set :list_id, settings.gb.lists(filters: { list_name: 'gbfriends' })['data'].first['id']
 
   set :root, File.dirname(__FILE__)
   register Sinatra::AssetPack
